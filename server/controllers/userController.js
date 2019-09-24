@@ -8,7 +8,9 @@ const model = () => new Model("users");
 const signUp = async (req, res) => {
   try {
     let { email, password } = req.body;
-    //console.log("ghh", email, password);
+<<<<<<< HEAD
+=======
+>>>>>>> master
     const user = await model().select("*", "email=$1", [email]);
     if (user[0]) {
       return res.status(httpStatus.CONFLICT).json({
@@ -32,7 +34,10 @@ const signUp = async (req, res) => {
       }
     });
   } catch (e) {
+<<<<<<< HEAD
     //console.log(e);
+=======
+>>>>>>> master
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       status: httpStatus.INTERNAL_SERVER_ERROR,
       message: "Internal Server error",
@@ -42,10 +47,12 @@ const signUp = async (req, res) => {
 };
 
 const login = async (req, res) => {
+<<<<<<< HEAD
   //console.log("hey", req.body);
+=======
+>>>>>>> master
   try {
     const { email, password } = req.body;
-    console.log("ghh", email, password);
     const isLogin = await model().select("*", "email=$1", [email]);
 
     if (isLogin[0] && (await argon2.verify(isLogin[0].password, password))) {
@@ -63,7 +70,6 @@ const login = async (req, res) => {
       error: "Invalid email or password"
     });
   } catch (e) {
-    console.log(e);
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       status: httpStatus.INTERNAL_SERVER_ERROR,
       message: "Internal server error",
