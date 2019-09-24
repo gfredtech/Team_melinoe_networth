@@ -34,7 +34,6 @@ class Model {
   async insert(columns, selector, values) {
     const query = `INSERT INTO ${this.table} (${columns}) VALUES (${selector}) returning *`;
     try {
-      // console.log(query);
       const { rows } = await this.pool.query(query, values);
       return rows;
     } catch (err) {
@@ -53,7 +52,7 @@ class Model {
     }
   }
 
-  // CRUD - DELETE Operation
+  // DELETE
   async delete(clause, values) {
     const query = `DELETE FROM ${this.table} WHERE ${clause} returning *`;
     try {
