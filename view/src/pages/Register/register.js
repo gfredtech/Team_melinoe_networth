@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 
+import "./register.css";
 class SignUp extends Component {
   constructor() {
     super();
@@ -55,10 +56,10 @@ class SignUp extends Component {
     return isLoggedIn ? (
       <Redirect to="/calculator" />
     ) : (
-      <div>
+      <div className="app">
         <div
           className="ui middle aligned center aligned grid"
-          style={{ transform: "translateY(30%)" }}
+          style={{ transform: "translateY(50%)" }}
         >
           <div className="column">
             <h2 className="ui teal image header">
