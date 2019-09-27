@@ -1,0 +1,14 @@
+body {
+    width: 100%;
+    color: rgb(31, 39, 35);
+}
+
+.Total {
+    margin-top: 50px;
+}
+
+@media screen and(max-height:814px) {
+    .content>h1,.content>h2 {
+        margin-bottom: 50%
+    }
+}
