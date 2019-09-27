@@ -31,7 +31,6 @@ const signUp = async (req, res) => {
       }
     });
   } catch (e) {
-    //console.log(e);
     return res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
       status: httpStatus.INTERNAL_SERVER_ERROR,
       message: "Internal Server error",
@@ -41,7 +40,6 @@ const signUp = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  //console.log("hey", req.body);
   try {
     const { email, password } = req.body;
     const isLogin = await model().select("*", "email=$1", [email]);
