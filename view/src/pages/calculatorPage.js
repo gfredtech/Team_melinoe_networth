@@ -18,7 +18,8 @@ class Calculator extends React.Component {
         Asset:0,
         liability:0,
         isAssetClick:false,
-        isliabilityClick:false
+        isliabilityClick:false,
+        cashAtHand:0
     }
 
     TotalAsset=()=> {
@@ -36,14 +37,15 @@ class Calculator extends React.Component {
         
 
     }
-    networth=(A,l)=> {
-        this.setState({networth:A - l})
+    networth=(A,l,C)=> {
+        this.setState({networth:C + A - l})
         this.setState({isAssetClick:false})
         this.setState({isliabilityClick:false})
         this.setState({liabilityArray:[]})
         this.setState({assetArray:[]})
         this.setState({TotalAsset:0})
         this.setState({TotalLiability:0})
+        
         
     }
     
@@ -66,6 +68,9 @@ class Calculator extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+    cashHandler = e=> {
+        this.setState({cashAtHand:Number(e.target.value)})
     }
     onLiabilityAdd = () => {
         const {liabilityAmount, liabilityName} = this.state;
@@ -152,6 +157,7 @@ class Calculator extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                     <div className="row">
                         <div className="column">
@@ -196,8 +202,24 @@ class Calculator extends React.Component {
                         </div>
                     </div>
                     <div className='Total'>
-                        <h4>Note: Total net-worth = Total Amount of Assets - Total Amount of Liabilities</h4>
-                        <button className='massive ui primary button' type='submit' onClick={()=>this.networth(this.state.Asset,this.state.liability)} disabled={this.state.isliabilityClick && this.state.isAssetClick ? false : true}>Calculate the Total Net-worth</button>
+                    <div className="ui segment">
+                                <div className="ui form">
+                                    <div className="three fields">
+                                        <div className="twelve wide field">
+                                            <label>Cash at hand(in Naira)</label>
+                                            <input type="number" name='cashatHand' placeholder="Cash at hand" onChange={this.cashHandler} />
+                                        </div>
+                                            <h2 className='ui header'>&#8358;{this.state.cashAtHand}</h2>
+                                        
+                                       
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        <h4>Note: Total net-worth = Cash at hand + Total Amount of Assets - Total Amount of Liabilities</h4>
+                        <button className='massive ui primary button' type='submit' onClick={()=>this.networth(this.state.Asset,this.state.liability,this.state.cashAtHand)} disabled={this.state.isliabilityClick && this.state.isAssetClick ? false : true}>Calculate the Total Net-worth</button>
                     </div>
                 </div>
                 
