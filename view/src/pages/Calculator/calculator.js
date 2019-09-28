@@ -1,5 +1,5 @@
 import React from 'react';
-import '../pages/calculatorPage.css'
+import './calculator.css'
 
 
 class Calculator extends React.Component {
@@ -14,7 +14,7 @@ class Calculator extends React.Component {
         liabilityArray: [],
         TotalAsset:0,
         TotalLiability:0,
-        networth: 0,
+        networth: "",
         Asset:0,
         liability:0,
         isAssetClick:false,
@@ -113,6 +113,7 @@ class Calculator extends React.Component {
     render() {
         
         return (
+            <div className="calculator">
             <div className='content'>
                 <h1 style={{textAlign:'center'}}>Melinoe Net-worth Calculator</h1>
                 <h2 style={{textAlign:'center'}}>Your Net-worth is &#8358;{this.state.networth} for now</h2>
@@ -224,6 +225,7 @@ class Calculator extends React.Component {
                 </div>
                 
                 
+            </div>
             </div>
         )
 

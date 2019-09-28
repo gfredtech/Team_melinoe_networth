@@ -1,3 +1,8 @@
+body {
+    width: 100%;
+    color: rgb(31, 39, 35);
+}
+
 .Total {
     margin-top: 50px;
 }
