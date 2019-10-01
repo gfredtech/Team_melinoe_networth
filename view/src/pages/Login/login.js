@@ -56,7 +56,7 @@ class Login extends Component {
     return isLoggedIn ? (
       <Redirect to="/calculator" />
     ) : (
-      <div style={{ transform: "translateY(80%)" }} className="contain ">
+      <div style={{ transform: "translateY(50%)" }} className="contain ">
         <div className="ui middle aligned center aligned grid">
           <div className="column">
             <h2 className="ui teal image header">
@@ -97,7 +97,7 @@ class Login extends Component {
                   <button
                     type="submit"
                     className="ui fluid large teal submit button"
-                    disable={isLoggedIn}
+                    disable="false"
                   >
                     {loading ? "Hold on..." : "Login"}
                   </button>
