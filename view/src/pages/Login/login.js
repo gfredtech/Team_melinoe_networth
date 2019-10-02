@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 import { Link, Redirect } from "react-router-dom";
-import GoogleAuth from "../../components/googleAuth";
 
 import "./login.css";
 
@@ -57,10 +56,9 @@ class Login extends Component {
     return isLoggedIn ? (
       <Redirect to="/calculator" />
     ) : (
-      <div style={{ transform: "translateY(30%)" }} className="contain ">
+      <div style={{ transform: "translateY(50%)" }} className="contain ">
         <div className="ui middle aligned center aligned grid">
           <div className="column">
-            <GoogleAuth purpose="Sign In" />
             <h2 className="ui teal image header">
               <div className="content">Login to your account</div>
             </h2>
@@ -115,10 +113,6 @@ class Login extends Component {
                 New to us? <Link to="/register">Sign Up</Link>
               </p>
             </div>
-            <p className="ui header">
-              Note:Reload the page if you are not directed automatically to the
-              calculator page after signing with google
-            </p>
           </div>
         </div>
       </div>
