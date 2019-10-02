@@ -7,6 +7,10 @@ body {
     margin-top: 50px;
 }
 
+button.signout.ui.button.right.floated.animated.shake {
+    margin: 10px;
+}
+
 @media screen and(max-height:814px) {
     .content>h1,.content>h2 {
         margin-bottom: 50%

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect} from "react-router-dom"
 import './calculator.css'
 
 
@@ -19,7 +20,9 @@ class Calculator extends React.Component {
         liability:0,
         isAssetClick:false,
         isliabilityClick:false,
-        cashAtHand:0
+        cashAtHand:0,
+        loading: false,
+        isLoggedOut: false
     }
 
     TotalAsset=()=> {
@@ -102,17 +105,18 @@ class Calculator extends React.Component {
         }))
         
         
+    };
+
+    onSignOut = () => {
+        this.setState({loading: true})
+        this.setState({isLoggedOut: true})
     }
-        // this.setState(state => ({
-            // assetArray: state.assetArray.concat([{
-            //     assetName: state.assetName,
-            //     assetAmount: state.assetAmount
-            // }])
-        // }));
+
     render() {
-        
-        return (
+        const {isLoggedOut, loading} = this.state
+        return isLoggedOut ? (<Redirect to="/"/>) : (
             <div className="calculator">
+            <button className='signout ui right floated animated shake button' onClick={this.onSignOut}><i className="sign-out icon"></i>{loading ? "Bye..." : "Sign out"}</button>
             <div className='content'>
                 <h1 style={{textAlign:'center'}}>Melinoe Net-worth Calculator</h1>
                 <h2 style={{textAlign:'center'}}>Your Net-worth is &#8358;{this.state.networth} for now</h2>
