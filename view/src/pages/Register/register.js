@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import GoogleAuth from "../../components/googleLogin";
 
 import "./register.css";
 class SignUp extends Component {
@@ -59,10 +60,12 @@ class SignUp extends Component {
       <div className="app">
         <div
           className="ui middle aligned center aligned grid"
-          style={{ transform: "translateY(50%)" }}
+          style={{ transform: "translateY(30%)" }}
         >
           <div className="column">
+            <GoogleAuth purpose="Sign Up With Google" />
             <h2 className="ui teal image header">
+              <h4>Or</h4>
               <div className="content">Register with us</div>
             </h2>
             <form
