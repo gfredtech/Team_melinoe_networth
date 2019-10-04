@@ -254,6 +254,7 @@ class Calculator extends React.Component {
                       <tr>
                         <th>Liability Name</th>
                         <th>Amount</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -263,7 +264,7 @@ class Calculator extends React.Component {
                           <td>{liability.liabilityAmount}</td>
                           <td>
                             <button
-                              className=""
+                              className="ui red button"
                               onClick={() => this.onLiabilityRemove(i)}
                             >
                               -Delete
